@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ashwini U Patil | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="min-h-screen w-full bg-black">
+  <nav class="absolute top-0 left-0 w-full bg-black shadow py-4 z-10">
+    <ul class="flex justify-center space-x-8 text-base font-medium">
+      <li><a href="#about" class="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent hover:text-white hover:underline transition">About</a></li>
+      <li><a href="#projects" class="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent hover:text-white hover:underline transition">Projects</a></li>
+      <li><a href="#skills" class="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent 
+        hover:text-white hover:underline transition">Skills</a></li>
+      <li><a href="#contact" class="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent hover:text-white hover:underline transition">Contact</a></li>
+      <li><a href="#experience" class="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent hover:text-white
+        hover:underline transition">Experience</a></li>
+    </ul>
+  </nav>
+  <div class="flex flex-col items-center bg-black rounded-xl shadow-lg px-8 py-10 mt-24 mb-8">
+    <!-- Modal Trigger and Modal using <details> -->
+    <details class="relative mb-6 group">
+      <summary class="list-none cursor-pointer outline-none focus:outline-none">
+        <img src="profile.jpg" alt="Ashwini U Patil" class="w-40 h-40 rounded-full object-cover shadow-lg border-4 border-blue-500 transition-transform hover:scale-105" />
+      </summary>
+      <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+        <div class="relative">
+          <button onclick="this.closest('details').removeAttribute('open')" class="absolute -top-8 right-0 text-white text-3xl font-bold cursor-pointer select-none px-4">&times;</button>
+          <img src="profile1.jpg" alt="Ashwini U Patil Large" class="w-80 h-80 md:w-[28rem] md:h-[28rem] rounded-full object-cover border-8 border-white shadow-2xl" />
+        </div>
+      </div>
+    </details>
+    <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent">Ashwini U Patil</h1>
+    <h2 class="text-xl font-semibold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mt-2"> Passionate Full Stack Web Developer</h2>
+    <div class="flex justify-center space-x-4 mt-3 mb-1">
+      <a href="https://github.com/Ashwini181025" target="_blank" class="text-gray-700 hover:text-purple-400 transition-transform hover:scale-110" aria-label="GitHub">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.74-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 2.92-.39c.99 0 1.99.13 2.92.39 2.22-1.49 3.2-1.18 3.2-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.7.42.36.79 1.09.79 2.2 0 1.59-.01 2.87-.01 3.26 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/ashwini-u-patil-4567b42bb?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-blue-400 hover:text-pink-400 transition-transform hover:scale-110" aria-label="LinkedIn">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.88v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z"/></svg>
+      </a>
+    </div>
+    <p class="mt-4 max-w-xl text-center text-gray-100 text-lg">I am a passionate web developer who loves creating beautiful and functional websites. I enjoy turning ideas into interactive digital experiences. Always eager to learn new technologies and grow as a developer.<br>
+    I thrive in collaborative environments and enjoy solving real-world problems through code. My goal is to build user-friendly applications that make a positive impact. With a keen eye for detail and a drive for excellence, I am committed to continuous improvement in my craft.</p>
+  </div>
+  <section id="about" class="mt-16 max-w-2xl mx-auto bg-black rounded-lg shadow-2xl hover:shadow-2xl transition duration-300 p-8 text-center border-t-4 border-teal-100">
+    <h2 class="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-4">About Me</h2>
+    <p class="section-caption">A quick snapshot of who I am and what drives me.</p>
+    <ul class="text-white text-base list-disc list-inside text-left mx-auto max-w-md space-y-2 mb-4">
+      <li>Currently pursuing a BE in Information Science at Cambridge Institute of Technology.</li>
+      <li>Skilled in HTML, CSS, JavaScript, and familiar with Bootstrap, Firebase, and Cursor AI.</li>
+      <li>Passionate about building user-friendly, responsive web applications.</li>
+      <li>Continuously learning new technologies to enhance my craft.</li>
+      <li>Enjoys collaborating on projects and solving real-world problems through code.</li>
+    </ul>
+  </section>
+  <section id="skills" class="mt-10 max-w-2xl mx-auto bg-black rounded-lg shadow-2xl hover:shadow-2xl transition duration-300 p-8 text-center border-t-4 border-teal-100">
+    <h2 class="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-4">Skills</h2>
+    <p class="section-caption">Technologies and tools I use to build robust web applications.</p>
+    <ul class="flex flex-wrap justify-center gap-3 mt-2">
+      <li class="bg-gray-800 text-blue-500 px-4 py-2 rounded-full shadow text-sm hover:bg-blue-500 hover:text-white hover:shadow-2xl transition">HTML</li>
+      <li class="bg-gray-800 text-pink-500 px-4 py-2 rounded-full shadow text-sm hover:bg-pink-500 hover:text-white hover:shadow-2xl transition">CSS</li>
+      <li class="bg-gray-800 text-yellow-500 px-4 py-2 rounded-full shadow text-sm hover:bg-yellow-500 hover:text-white hover:shadow-2xl transition">JavaScript</li>
+      <li class="bg-gray-800 text-red-500 px-4 py-2 rounded-full shadow text-sm hover:bg-cyan-500 hover:text-white hover:shadow-2xl transition">React.js</li>
+      <li class="bg-gray-800 text-green-500 px-4 py-2 rounded-full shadow text-sm hover:bg-green-500 hover:text-white hover:shadow-2xl transition">Node.js</li>
+      <li class="bg-gray-800 text-purple-500 px-4 py-2 rounded-full shadow text-sm hover:bg-purple-500 hover:text-white hover:shadow-2xl transition">Express.js</li>
+      <li class="bg-gray-800 text-yellow-500 px-4 py-2 rounded-full shadow text-sm hover:bg-orange-500 hover:text-white hover:shadow-2xl transition">MongoDB</li>
+      <li class="bg-gray-800 text-pink-500 px-4 py-2 rounded-full shadow text-sm hover:bg-fuchsia-500 hover:text-white hover:shadow-2xl transition">Git & GitHub</li>
+      <li class="bg-gray-800 text-indigo-500 px-4 py-2 rounded-full shadow text-sm hover:bg-indigo-500 hover:text-white hover:shadow-2xl transition">REST APIs</li>
+      <li class="bg-gray-800 text-green-700 px-4 py-2 rounded-full shadow text-sm hover:bg-teal-500 hover:text-white hover:shadow-2xl transition">Deployment (Vercel, Netlify, Heroku)</li>
+      <li class="bg-gray-800 text-red-500 px-4 py-2 rounded-full shadow text-sm hover:bg-red-500 hover:text-white hover:shadow-2xl transition">DSA in Java</li>
+      <li class="bg-gray-800 text-blue-700 px-4 py-2 rounded-full shadow text-sm hover:bg-lime-500 hover:text-white hover:shadow-2xl transition">Advanced DSA</li>
+      <li class="bg-gray-800 text-green-400 px-4 py-2 rounded-full shadow text-sm hover:bg-green-400 hover:text-black hover:shadow-2xl transition">Firebase Studio</li>
+      <li class="bg-gray-800 text-yellow-500 px-4 py-2 rounded-full shadow text-sm hover:bg-orange-500 hover:text-white   hover:shadow-2xl transition">Cursor AI</li>
+      <li class="bg-gray-800 text-yellow-300 px-4 py-2 rounded-full shadow text-sm hover:bg-yellow-300 hover:text-black hover:shadow-2xl transition">AI Technologies</li>
+      <li class="bg-gray-800 text-pink-300 px-4 py-2 rounded-full shadow text-sm hover:bg-pink-300 hover:text-black hover:shadow-2xl transition">Canva</li>
+      <li class="bg-gray-800 text-blue-300 px-4 py-2 rounded-full shadow text-sm hover:bg-blue-300 hover:text-black hover:shadow-2xl transition">Freelancing (Upwork)</li>
+    </ul>
+  </section>
+  <section id="education" class="mt-10 max-w-2xl mx-auto bg-black rounded-lg shadow-2xl hover:shadow-2xl transition duration-300 p-8 text-center border-t-4 border-teal-100">
+    <h2 class="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-4">Education</h2>
+    <p class="section-caption">My academic journey and the foundation of my tech skills.</p>
+    <ul class="text-white text-base list-disc list-inside text-left mx-auto max-w-md space-y-2">
+      <li><span class="font-semibold">Bachelor of Engineering (BE), Information Science</span><br>Cambridge Institute of Technology<br><span class="italic">KR Puram, Bangalore</span><br>Expected Graduation: 2027</li>
+    </ul>
+  </section>
+  <section id="projects" class="mt-10 max-w-4xl mx-auto bg-black rounded-lg shadow-2xl hover:shadow-2xl transition duration-300 p-8 border-t-4 border-teal-100">
+    <h2 class="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-8 text-center">Projects</h2>
+    <p class="section-caption">A showcase of my hands-on work and what I've built so far.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Amazon Clone -->
+      <div class="bg-black rounded-lg shadow p-6 flex flex-col border-l-4 border-teal-200 hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+        <h3 class="text-xl font-semibold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-2">Amazon Clone</h3>
+        <p class="text-white mb-2">A fully responsive e-commerce web application inspired by Amazon. Features product listings, shopping cart, and user authentication. Users can browse products, add them to the cart, and simulate a checkout process.</p>
+        <ul class="text-sm text-white list-disc list-inside mb-2">
+          <li>Skills: HTML, CSS, JavaScript, React.js, Firebase (for authentication & database)</li>
+          <li>How it works: Frontend built with React, product data managed in Firebase, user authentication for login/signup, and cart state managed with React state/hooks.</li>
+        </ul>
+      </div>
+      <!-- Portfolio using Cursor AI -->
+      <div class="bg-black rounded-lg shadow p-6 flex flex-col border-l-4 border-teal-200 hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+        <h3 class="text-xl font-semibold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-2">Portfolio using Cursor AI</h3>
+        <p class="text-white mb-2">A personal portfolio website created with the help of Cursor AI, showcasing projects, skills, and contact information in a modern, responsive layout.</p>
+        <ul class="text-sm text-white list-disc list-inside mb-2">
+          <li>Skills: HTML, Tailwind CSS, Cursor AI, Responsive Design</li>
+          <li>How it works: Built using plain HTML and Tailwind CSS, with content and structure generated and refined using Cursor AI for efficiency and best practices.</li>
+        </ul>
+      </div>
+      <!-- MERN Full Stack Web App -->
+      <div class="bg-black rounded-lg shadow p-6 flex flex-col md:col-span-2 border-l-4 border-teal-200 hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+        <h3 class="text-xl font-semibold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-2">Task Manager App (MERN Stack)</h3>
+        <p class="text-white mb-2">A full stack web application for managing daily tasks. Users can register, log in, create, update, and delete tasks. All data is stored securely in a MongoDB database.</p>
+        <ul class="text-sm text-white list-disc list-inside mb-2">
+          <li>Skills: MongoDB, Express.js, React.js, Node.js, REST APIs, JWT Authentication, Git</li>
+          <li>How it works: The backend (Node.js/Express) provides RESTful APIs for task CRUD operations and user authentication. The frontend (React) interacts with the backend via API calls. MongoDB stores user and task data. JWT is used for secure authentication.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section id="experience" class="mt-10 max-w-3xl mx-auto bg-black rounded-lg shadow-2xl hover:shadow-2xl transition duration-300 p-8 border-t-4 border-teal-100">
+    <h2 class="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-6 text-center">Experience</h2>
+    <p class="section-caption">Professional roles and real-world learning experiences.</p>
+    <div class="space-y-6">
+      <div class="bg-black rounded-lg shadow p-5 border-l-4 border-teal-200 hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+        <h3 class="text-lg font-semibold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-1">Virtual Internship: AWS APAC - Solutions Architecture Job Simulation</h3>
+        <p class="text-white text-sm mb-1">April 2025</p>
+        <p class="text-white text-base">Completed a virtual job simulation focused on cloud solutions architecture, gaining hands-on experience with AWS services, solution design, and best practices for scalable cloud infrastructure.</p>
+      </div>
+      <div class="bg-black rounded-lg shadow p-5 border-l-4 border-teal-200 hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+        <h3 class="text-lg font-semibold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-1">Software Engineer Intern, Yuga Yatra Retail (OPC) Pvt. Ltd.</h3>
+        <p class="text-white text-sm mb-1">July 7th, 2025 – Sep 7th, 2025</p>
+        <p class="text-white text-base">Worked as a software engineering intern, contributing to the development and optimization of retail software solutions. Collaborated with the team to implement new features and improve system performance.<br>
+        Gained hands-on experience developing modern websites using <span class="font-semibold">Cursor AI</span>, <span class="font-semibold">Firebase Studio</span>, and <span class="font-semibold">AI technologies</span>. Designed engaging visuals with <span class="font-semibold">Canva</span>. Also worked as a freelancer on <a href="https://upwork.com" class="underline text-blue-400 hover:text-pink-400" target="_blank">Upwork</a>, delivering web solutions to clients worldwide.</p>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="mt-10 max-w-xl mx-auto bg-black rounded-lg shadow-2xl hover:shadow-2xl transition duration-300 p-8 text-center border-t-4 border-teal-100">
+    <h2 class="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-4">Contact</h2>
+    <p class="section-caption">Let's connect! I'm always open to new opportunities and collaborations.</p>
+    <div class="flex flex-col items-center space-y-3">
+      <a href="mailto:ashwinipatil1825@gmail.com" class="flex items-center bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent hover:underline transition-transform hover:scale-105 text-lg">
+        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm0 0v4a4 4 0 01-8 0v-4"></path></svg>
+        ashwinipatil1825@gmail.com
+      </a>
+      <a href="tel:+917795045958" class="flex items-center bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent hover:underline transition-transform hover:scale-105 text-lg">
+        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2zm10-10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+        +91 7795045958
+      </a>
+    </div>
+  </section>
+  <footer class="bg-black border-t mt-12 py-4 text-center text-gray-400 text-sm w-full">
+    © 2025 Ashwini U Patil
+  </footer>
+</body>
+</html>
