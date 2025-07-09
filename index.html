@@ -72,6 +72,23 @@
     #projects .project-card:hover img {
       transform: scale(1.08) rotate(-2deg);
     }
+    /* Animated Timeline */
+    .timeline-item {
+      opacity: 1;
+      transform: translateX(0);
+      transition: all 0.7s cubic-bezier(0.4,0,0.2,1);
+    }
+    .timeline-item.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .timeline-marker {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+      50% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
+    }
   </style>
   <script>
     // Fade/slide-in animation for sections on scroll
@@ -103,7 +120,14 @@
   </style>
 </head>
 <body class="min-h-screen w-full bg-black transition-colors duration-500">
-  <!-- Scroll Progress Bar -->
+    <!-- Animated Background Orbs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      <div class="floating-orb orb-1"></div>
+      <div class="floating-orb orb-2"></div>
+      <div class="floating-orb orb-3"></div>
+      <div class="floating-orb orb-4"></div>
+    </div>
+    <!-- Scroll Progress Bar -->
   <div id="scroll-progress" style="position:fixed;top:0;left:0;width:0;height:5px;z-index:60;background:linear-gradient(90deg,#60a5fa,#a78bfa,#f472b6);transition:width 0.2s cubic-bezier(0.4,0,0.2,1);"></div>
   <!-- Dark/Light Mode Toggle Button -->
   <button id="theme-toggle" aria-label="Toggle dark/light mode" class="fixed top-5 right-6 z-50 bg-gray-800 bg-opacity-80 rounded-full p-2 shadow-lg hover:bg-gray-700 transition-colors duration-300 focus:outline-none">
@@ -188,6 +212,60 @@
     }
     .border-teal-100, .border-teal-200 {
       border-color: var(--border-section) !important;
+    }
+    /* Animated Background Orbs */
+    .floating-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.15;
+      animation: float 20s ease-in-out infinite;
+    }
+    .orb-1 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #60a5fa, transparent);
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+    .orb-2 {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, #a78bfa, transparent);
+      top: 60%;
+      right: 15%;
+      animation-delay: -5s;
+    }
+    .orb-3 {
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, #f472b6, transparent);
+      bottom: 20%;
+      left: 20%;
+      animation-delay: -10s;
+    }
+    .orb-4 {
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, #34d399, transparent);
+      top: 30%;
+      right: 40%;
+      animation-delay: -15s;
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-20px) translateX(10px) rotate(90deg);
+      }
+      50% {
+        transform: translateY(-10px) translateX(-15px) rotate(180deg);
+      }
+      75% {
+        transform: translateY(15px) translateX(5px) rotate(270deg);
+      }
     }
   </style>
   <nav class="absolute top-0 left-0 w-full bg-black shadow py-4 z-10">
@@ -304,20 +382,32 @@
       </div>
     </div>
   </section>
-  <section id="experience" class="mt-10 max-w-3xl mx-auto bg-black rounded-lg shadow-2xl hover:shadow-2xl transition duration-300 p-8 border-t-4 border-teal-100">
+  <section id="experience" class="mt-10 max-w-4xl mx-auto bg-black rounded-lg shadow-2xl hover:shadow-2xl transition duration-300 p-8 border-t-4 border-teal-100">
     <h2 class="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-6 text-center">Experience</h2>
     <p class="section-caption">Professional roles and real-world learning experiences.</p>
-    <div class="space-y-6">
-      <div class="bg-black rounded-lg shadow p-5 border-l-4 border-teal-200 hover:scale-105 hover:shadow-2xl transition-transform duration-300">
-        <h3 class="text-lg font-semibold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-1">Virtual Internship: AWS APAC - Solutions Architecture Job Simulation</h3>
-        <p class="text-white text-sm mb-1">April 2025</p>
-        <p class="text-white text-base">Completed a virtual job simulation focused on cloud solutions architecture, gaining hands-on experience with AWS services, solution design, and best practices for scalable cloud infrastructure.</p>
+    <div class="timeline-container relative mt-8">
+      <!-- Timeline Line -->
+      <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 via-purple-500 to-pink-400"></div>
+      
+      <!-- Timeline Item 1 -->
+      <div class="timeline-item relative mb-12 ml-16 opacity-0 transform translate-x-8 transition-all duration-700">
+        <div class="timeline-marker absolute -left-8 top-2 w-4 h-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full border-4 border-black shadow-lg"></div>
+        <div class="timeline-content bg-black rounded-lg shadow p-6 border-l-4 border-teal-200 hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+          <div class="timeline-date text-sm text-blue-400 font-semibold mb-2">April 2025</div>
+          <h3 class="text-lg font-semibold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-1">Virtual Internship: AWS APAC - Solutions Architecture Job Simulation</h3>
+          <p class="text-white text-base">Completed a virtual job simulation focused on cloud solutions architecture, gaining hands-on experience with AWS services, solution design, and best practices for scalable cloud infrastructure.</p>
+        </div>
       </div>
-      <div class="bg-black rounded-lg shadow p-5 border-l-4 border-teal-200 hover:scale-105 hover:shadow-2xl transition-transform duration-300">
-        <h3 class="text-lg font-semibold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-1">Software Engineer Intern, Yuga Yatra Retail (OPC) Pvt. Ltd.</h3>
-        <p class="text-white text-sm mb-1">July 7th, 2025 – Sep 7th, 2025</p>
-        <p class="text-white text-base">Worked as a software engineering intern, contributing to the development and optimization of retail software solutions. Collaborated with the team to implement new features and improve system performance.<br>
-        Gained hands-on experience developing modern websites using <span class="font-semibold">Cursor AI</span>, <span class="font-semibold">Firebase Studio</span>, and <span class="font-semibold">AI technologies</span>. Designed engaging visuals with <span class="font-semibold">Canva</span>. Also worked as a freelancer on <a href="https://upwork.com" class="underline text-blue-400 hover:text-pink-400" target="_blank">Upwork</a>, delivering web solutions to clients worldwide.</p>
+      
+      <!-- Timeline Item 2 -->
+      <div class="timeline-item relative mb-12 ml-16 opacity-0 transform translate-x-8 transition-all duration-700" style="transition-delay: 200ms;">
+        <div class="timeline-marker absolute -left-8 top-2 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-black shadow-lg"></div>
+        <div class="timeline-content bg-black rounded-lg shadow p-6 border-l-4 border-teal-200 hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+          <div class="timeline-date text-sm text-purple-400 font-semibold mb-2">July 7th, 2025 – Sep 7th, 2025</div>
+          <h3 class="text-lg font-semibold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-1">Software Engineer Intern, Yuga Yatra Retail (OPC) Pvt. Ltd.</h3>
+          <p class="text-white text-base">Worked as a software engineering intern, contributing to the development and optimization of retail software solutions. Collaborated with the team to implement new features and improve system performance.<br>
+          Gained hands-on experience developing modern websites using <span class="font-semibold">Cursor AI</span>, <span class="font-semibold">Firebase Studio</span>, and <span class="font-semibold">AI technologies</span>. Designed engaging visuals with <span class="font-semibold">Canva</span>. Also worked as a freelancer on <a href="https://upwork.com" class="underline text-blue-400 hover:text-pink-400" target="_blank">Upwork</a>, delivering web solutions to clients worldwide.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -513,5 +603,19 @@
       border-color: #f472b6 !important;
     }
   </style>
+  <script>
+    // Timeline Animation
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, { threshold: 0.3 });
+    timelineItems.forEach(item => {
+      timelineObserver.observe(item);
+    });
+  </script>
 </body>
 </html>
