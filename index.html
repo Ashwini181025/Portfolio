@@ -9,7 +9,7 @@
   /* Section hover effect: lift, glow, and shadow */
   section:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 8px 32px 0 rgba(58, 123, 213, 0.25), 0 0 24px 4px rgba(236, 72, 15
+    box-shadow: 0 8px 32px 0 rgba(58, 123, 213, 0.25), 0 0 24px 4px rgba(236, 72, 153, 0.15);
     border-color: #a5b4fc; /* Soft blue border on hover */
     transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
     z-index: 2;
@@ -22,7 +22,7 @@
     border-radius: 1rem;
     pointer-events: none;
     z-index: 1;
-    box-shadow: 0 0 32px 8px rgba(59,130,246,0.15), 0 0 48px 16px rgba(236,72,153,0.
+    box-shadow: 0 0 32px 8px rgba(59,130,246,0.15), 0 0 48px 16px rgba(236,72,153,0.10);
   }
   section {
     position: relative;
@@ -36,6 +36,35 @@
     margin-bottom: 1.5rem;
   }
 </style>
+<script>
+  // Fade/slide-in animation for sections on scroll
+  document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('section');
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('section-visible');
+        }
+      });
+    }, { threshold: 0.15 });
+    sections.forEach(section => {
+      section.classList.add('section-hidden');
+      observer.observe(section);
+    });
+  });
+</script>
+<style>
+  .section-hidden {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+  }
+  .section-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+</style>
+   
 </head>
 <body class="min-h-screen w-full bg-black">
   <nav class="absolute top-0 left-0 w-full bg-black shadow py-4 z-10">
