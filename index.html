@@ -5,369 +5,191 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ashwini U Patil | Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
- <style>
-  /* Section hover effect: lift, glow, and shadow */
-  section:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 8px 32px 0 rgba(58, 123, 213, 0.25), 0 0 24px 4px rgba(236, 72, 153, 0.15);
-    border-color: #a5b4fc; /* Soft blue border on hover */
-    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-    z-index: 2;
-  }
-  /* Add a faint gradient glow using pseudo-element */
-  section:hover::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 1rem;
-    pointer-events: none;
-    z-index: 1;
-    box-shadow: 0 0 32px 8px rgba(59,130,246,0.15), 0 0 48px 16px rgba(236,72,153,0.10);
-  }
-  section {
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-    z-index: 1;
-  }
-  .section-caption {
-    font-style: italic;
-    color: #aaa;
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  /* Advanced Project Card Hover Effects */
-  #projects .project-card {
-    perspective: 900px;
-    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
-    position: relative;
-    overflow: hidden;
-  }
-  #projects .project-card:hover {
-    transform: rotateY(8deg) scale(1.04) translateY(-6px);
-    box-shadow: 0 12px 32px 0 rgba(58,123,213,0.25), 0 0 32px 8px rgba(236,72,153,0.10);
-    z-index: 2;
-  }
-  #projects .project-card .project-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg,rgba(59,130,246,0.7),rgba(168,139,250,0.7),rgba(244,114,182,0.7));
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 1.3rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1);
-    z-index: 3;
-    pointer-events: none;
-  }
-  #projects .project-card:hover .project-overlay {
-    opacity: 1;
-  }
-  #projects .project-card img {
-    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
-  }
-  #projects .project-card:hover img {
-    transform: scale(1.08) rotate(-2deg);
-  }
-</style>
-<script>
-  // Fade/slide-in animation for sections on scroll
-  document.addEventListener('DOMContentLoaded', function() {
-    const sections = document.querySelectorAll('section');
-    const observer = new window.IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('section-visible');
-        }
-      });
-    }, { threshold: 0.15 });
-    sections.forEach(section => {
-      section.classList.add('section-hidden');
-      observer.observe(section);
-    });
-  });
-</script>
-<style>
-  .section-hidden {
-    opacity: 0;
-    transform: translateY(40px) scale(0.98);
-    transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
-  }
-  .section-visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-</style>
- <script>
-   // Fade/slide-in animation for sections on scroll
-   document.addEventListener('DOMContentLoaded', function() {
-     const sections = document.querySelectorAll('section');
-     const observer = new window.IntersectionObserver((entries) => {
-       entries.forEach(entry => {
-         if (entry.isIntersecting) {
-           entry.target.classList.add('section-visible');
-         }
-       });
-     }, { threshold: 0.15 });
-     sections.forEach(section => {
-       section.classList.add('section-hidden');
-       observer.observe(section);
-     });
-   });
- </script>
- <style>
-   .section-hidden {
-     opacity: 0;
-     transform: translateY(40px) scale(0.98);
-     transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0
-   }
-   .section-visible {
-     opacity: 1;
-     transform: translateY(0) scale(1);
-   }
- </style>
-/head>
-body class="min-h-screen w-full bg-black transition-colors duration-500">
- <!-- Scroll Progress Bar -->
- <div id="scroll-progress" style="position:fixed;top:0;left:0;width:0;height:5px;z-ind
-background:linear-gradient(90deg,#60a5fa,#a78bfa,#f472b6);transition:width 0.2s cu
-"></div>
- <!-- Dark/Light Mode Toggle Button -->
- <button id="theme-toggle" aria-label="Toggle dark/light mode" class="fixed top-5 righ
-bg-opacity-80 rounded-full p-2 shadow-lg hover:bg-gray-700 transition-colors duration
-   <span id="theme-icon" class="text-yellow-300">
-     <!-- Sun icon (default dark mode) -->
-     <svg id="sun-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path 
-5 0 000 10zm0 2a7 7 0 110-14 7 7 0 010 14zm0-18a1 1 0 011 1v2a1 1 0 11-2 0V0a1 1 
-1v2a1 1 0 11-2 0v-2a1 1 0 011-1zm10-10a1 1 0 01-1 1h-2a1 1 0 110-2h2a1 1 0 011 1z
-0 110-2h1a1 1 0 011 1zm15.07 7.07a1 1 0 01-1.41 0l-1.42-1.42a1 1 0 111.41-1.41l1.
-93 4.93a1 1 0 01-1.41 0L2.1 3.51a1 1 0 111.41-1.41l1.42 1.42a1 1 0 010 1.41zm10.1
-42a1 1 0 111.41 1.41l-1.42 1.42a1 1 0 01-1.41 0zM4.93 15.07a1 1 0 010-1.41l1.42-1
-42 1.42a1 1 0 01-1.41 0z"/></svg>
-     <!-- Moon icon (hidden by default) -->
-     <svg id="moon-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20
-293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
-   </span>
- </button>
- <script>
-   // Dark/Light mode toggle logic
-   const toggleBtn = document.getElementById('theme-toggle');
-   const body = document.body;
-   const sunIcon = document.getElementById('sun-icon');
-   const moonIcon = document.getElementById('moon-icon');
-   function setTheme(light) {
-     if (light) {
-       body.classList.add('light');
-       sunIcon.classList.add('hidden');
-       moonIcon.classList.remove('hidden');
-     } else {
-       body.classList.remove('light');
-       sunIcon.classList.remove('hidden');
-       moonIcon.classList.add('hidden');
-     }
-   }
-   // Check localStorage
-   if (localStorage.getItem('theme') === 'light') setTheme(true);
-   toggleBtn.addEventListener('click', () => {
-     const isLight = !body.classList.contains('light');
-     setTheme(isLight);
-     localStorage.setItem('theme', isLight ? 'light' : 'dark');
-   });
-   // Scroll Progress Bar logic
-   const scrollBar = document.getElementById('scroll-progress');
-   window.addEventListener('scroll', () => {
-     const scrollTop = window.scrollY;
-     const docHeight = document.body.scrollHeight - window.innerHeight;
-     const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-     scrollBar.style.width = scrolled + '%';
-   });
-   // Update on resize too
-   window.addEventListener('resize', () => {
-     const scrollTop = window.scrollY;
-     const docHeight = document.body.scrollHeight - window.innerHeight;
-     const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-     scrollBar.style.width = scrolled + '%';
-   });
- </script>
- <style>
-   :root {
-     --bg-main: #000;
-     --bg-section: #111;
-     --text-main: #fff;
-     --text-secondary: #aaa;
-     --border-section: #5eead4;
-   }
-   body.light {
-     --bg-main: #f7fafc;
-     --bg-section: #fff;
-     --text-main: #222;
-     --text-secondary: #555;
-     --border-section: #6366f1;
-   }
-   body, .bg-black {
-     background: var(--bg-main) !important;
-     color: var(--text-main);
-     transition: background 0.5s, color 0.5s;
-   }
-   section, .rounded-lg, .rounded-xl {
-     background: var(--bg-section) !important;
-     color: var(--text-main);
-     border-color: var(--border-section) !important;
-     transition: background 0.5s, color 0.5s, border-color 0.5s;
-   }
-   .section-caption {
-     color: var(--text-secondary) !important;
-   }
-   .text-white {
-     color: var(--text-main) !important;
-   }
-   .border-teal-100, .border-teal-200 {
-     border-color: var(--border-section) !important;
-   }
- </style>
-<script>
-  // Fade/slide-in animation for sections on scroll
-  document.addEventListener('DOMContentLoaded', function() {
-    const sections = document.querySelectorAll('section');
-    const observer = new window.IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('section-visible');
-        }
-      });
-    }, { threshold: 0.15 });
-    sections.forEach(section => {
-      section.classList.add('section-hidden');
-      observer.observe(section);
-    });
-  });
-</script>
-<style>
-  .section-hidden {
-    opacity: 0;
-    transform: translateY(40px) scale(0.98);
-    transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bez
-  }
-  .section-visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-</style>
-head>
-ody class="min-h-screen w-full bg-black transition-colors duration-500">
-<!-- Dark/Light Mode Toggle Button -->
-<button id="theme-toggle" aria-label="Toggle dark/light mode" class="fixed top-5
-bg-opacity-80 rounded-full p-2 shadow-lg hover:bg-gray-700 transition-colors dur
-  <span id="theme-icon" class="text-yellow-300">
-    <!-- Sun icon (default dark mode) -->
-    <svg id="sun-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><
-5 0 000 10zm0 2a7 7 0 110-14 7 7 0 010 14zm0-18a1 1 0 011 1v2a1 1 0 11-2 0V0
-1v2a1 1 0 11-2 0v-2a1 1 0 011-1zm10-10a1 1 0 01-1 1h-2a1 1 0 110-2h2a1 1 0 0
-0 110-2h1a1 1 0 011 1zm15.07 7.07a1 1 0 01-1.41 0l-1.42-1.42a1 1 0 111.41-1.
-93 4.93a1 1 0 01-1.41 0L2.1 3.51a1 1 0 111.41-1.41l1.42 1.42a1 1 0 010 1.41z
-42a1 1 0 111.41 1.41l-1.42 1.42a1 1 0 01-1.41 0zM4.93 15.07a1 1 0 010-1.41l1
-42 1.42a1 1 0 01-1.41 0z"/></svg>
-    <!-- Moon icon (hidden by default) -->
-    <svg id="moon-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 
-293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
-  </span>
-</button>
-<script>
-  // Dark/Light mode toggle logic
-  const toggleBtn = document.getElementById('theme-toggle');
-  const body = document.body;
-  const sunIcon = document.getElementById('sun-icon');
-  const moonIcon = document.getElementById('moon-icon');
-  function setTheme(light) {
-    if (light) {
-      body.classList.add('light');
-      sunIcon.classList.add('hidden');
-      moonIcon.classList.remove('hidden');
-    } else {
-      body.classList.remove('light');
-      sunIcon.classList.remove('hidden');
-      moonIcon.classList.add('hidden');
+  <style>
+    /* Section hover effect: lift, glow, and shadow */
+    section:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 8px 32px 0 rgba(58, 123, 213, 0.25), 0 0 24px 4px rgba(236, 72, 153, 0.15);
+      border-color: #a5b4fc; /* Soft blue border on hover */
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      z-index: 2;
     }
-  }
-  // Check localStorage
-  if (localStorage.getItem('theme') === 'light') setTheme(true);
-  toggleBtn.addEventListener('click', () => {
-    const isLight = !body.classList.contains('light');
-    setTheme(isLight);
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  });
-</script>
-<style>
-  :root {
-    --bg-main: #000;
-    --bg-section: #111;
-    --text-main: #fff;
-    --text-secondary: #aaa;
-    --border-section: #5eead4;
-  }
-  body.light {
-    --bg-main: #f7fafc;
-    --bg-section: #fff;
-    --text-main: #222;
-    --text-secondary: #555;
-    --border-section: #6366f1;
-  }
-  body, .bg-black {
-    background: var(--bg-main) !important;
-    color: var(--text-main);
-    transition: background 0.5s, color 0.5s;
-  }
-  section, .rounded-lg, .rounded-xl {
-    background: var(--bg-section) !important;
-    color: var(--text-main);
-    border-color: var(--border-section) !important;
-    transition: background 0.5s, color 0.5s, border-color 0.5s;
-  }
-  .section-caption {
-    color: var(--text-secondary) !important;
-  }
-  .text-white {
-    color: var(--text-main) !important;
-  }
-  .border-teal-100, .border-teal-200 {
-    border-color: var(--border-section) !important;
-  }
-</style>
-    
-<script>
-  // Fade/slide-in animation for sections on scroll
-  document.addEventListener('DOMContentLoaded', function() {
-    const sections = document.querySelectorAll('section');
-    const observer = new window.IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('section-visible');
-        }
+    /* Add a faint gradient glow using pseudo-element */
+    section:hover::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 1rem;
+      pointer-events: none;
+      z-index: 1;
+      box-shadow: 0 0 32px 8px rgba(59,130,246,0.15), 0 0 48px 16px rgba(236,72,153,0.10);
+    }
+    section {
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      z-index: 1;
+    }
+    .section-caption {
+      font-style: italic;
+      color: #aaa;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    /* Advanced Project Card Hover Effects */
+    #projects .project-card {
+      perspective: 900px;
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+      position: relative;
+      overflow: hidden;
+    }
+    #projects .project-card:hover {
+      transform: rotateY(8deg) scale(1.04) translateY(-6px);
+      box-shadow: 0 12px 32px 0 rgba(58,123,213,0.25), 0 0 32px 8px rgba(236,72,153,0.10);
+      z-index: 2;
+    }
+    #projects .project-card .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg,rgba(59,130,246,0.7),rgba(168,139,250,0.7),rgba(244,114,182,0.7));
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1);
+      z-index: 3;
+      pointer-events: none;
+    }
+    #projects .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+    #projects .project-card img {
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    #projects .project-card:hover img {
+      transform: scale(1.08) rotate(-2deg);
+    }
+  </style>
+  <script>
+    // Fade/slide-in animation for sections on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('section');
+      const observer = new window.IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('section-visible');
+          }
+        });
+      }, { threshold: 0.15 });
+      sections.forEach(section => {
+        section.classList.add('section-hidden');
+        observer.observe(section);
       });
-    }, { threshold: 0.15 });
-    sections.forEach(section => {
-      section.classList.add('section-hidden');
-      observer.observe(section);
     });
-  });
-</script>
-<style>
-  .section-hidden {
-    opacity: 0;
-    transform: translateY(40px) scale(0.98);
-    transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
-  }
-  .section-visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-</style>
-   
+  </script>
+  <style>
+    .section-hidden {
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+    }
+    .section-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  </style>
 </head>
-<body class="min-h-screen w-full bg-black">
+<body class="min-h-screen w-full bg-black transition-colors duration-500">
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" style="position:fixed;top:0;left:0;width:0;height:5px;z-index:60;background:linear-gradient(90deg,#60a5fa,#a78bfa,#f472b6);transition:width 0.2s cubic-bezier(0.4,0,0.2,1);"></div>
+  <!-- Dark/Light Mode Toggle Button -->
+  <button id="theme-toggle" aria-label="Toggle dark/light mode" class="fixed top-5 right-6 z-50 bg-gray-800 bg-opacity-80 rounded-full p-2 shadow-lg hover:bg-gray-700 transition-colors duration-300 focus:outline-none">
+    <span id="theme-icon" class="text-yellow-300">
+      <!-- Sun icon (default dark mode) -->
+      <svg id="sun-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15a5 5 0 100-10 5 5 0 000 10zm0 2a7 7 0 110-14 7 7 0 010 14zm0-18a1 1 0 011 1v2a1 1 0 11-2 0V0a1 1 0 011-1zm0 20a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zm10-10a1 1 0 01-1 1h-2a1 1 0 110-2h2a1 1 0 011 1zM2 10a1 1 0 01-1 1H0a1 1 0 110-2h1a1 1 0 011 1zm15.07 7.07a1 1 0 01-1.41 0l-1.42-1.42a1 1 0 111.41-1.41l1.42 1.42a1 1 0 010 1.41zM4.93 4.93a1 1 0 01-1.41 0L2.1 3.51a1 1 0 111.41-1.41l1.42 1.42a1 1 0 010 1.41zm10.14 0a1 1 0 010-1.41l1.42-1.42a1 1 0 111.41 1.41l-1.42 1.42a1 1 0 01-1.41 0zM4.93 15.07a1 1 0 010-1.41l1.42-1.42a1 1 0 111.41 1.41l-1.42 1.42a1 1 0 01-1.41 0z"/></svg>
+      <!-- Moon icon (hidden by default) -->
+      <svg id="moon-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+    </span>
+  </button>
+  <script>
+    // Dark/Light mode toggle logic
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    function setTheme(light) {
+      if (light) {
+        body.classList.add('light');
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+      } else {
+        body.classList.remove('light');
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+      }
+    }
+    // Check localStorage
+    if (localStorage.getItem('theme') === 'light') setTheme(true);
+    toggleBtn.addEventListener('click', () => {
+      const isLight = !body.classList.contains('light');
+      setTheme(isLight);
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+    // Scroll Progress Bar logic
+    const scrollBar = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      scrollBar.style.width = scrolled + '%';
+    });
+    // Update on resize too
+    window.addEventListener('resize', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      scrollBar.style.width = scrolled + '%';
+    });
+  </script>
+  <style>
+    :root {
+      --bg-main: #000;
+      --bg-section: #111;
+      --text-main: #fff;
+      --text-secondary: #aaa;
+      --border-section: #5eead4;
+    }
+    body.light {
+      --bg-main: #f7fafc;
+      --bg-section: #fff;
+      --text-main: #222;
+      --text-secondary: #555;
+      --border-section: #6366f1;
+    }
+    body, .bg-black {
+      background: var(--bg-main) !important;
+      color: var(--text-main);
+      transition: background 0.5s, color 0.5s;
+    }
+    section, .rounded-lg, .rounded-xl {
+      background: var(--bg-section) !important;
+      color: var(--text-main);
+      border-color: var(--border-section) !important;
+      transition: background 0.5s, color 0.5s, border-color 0.5s;
+    }
+    .section-caption {
+      color: var(--text-secondary) !important;
+    }
+    .text-white {
+      color: var(--text-main) !important;
+    }
+    .border-teal-100, .border-teal-200 {
+      border-color: var(--border-section) !important;
+    }
+  </style>
   <nav class="absolute top-0 left-0 w-full bg-black shadow py-4 z-10">
     <ul class="flex justify-center space-x-8 text-base font-medium">
       <li><a href="#about" class="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent hover:text-white hover:underline transition">About</a></li>
@@ -383,7 +205,7 @@ bg-opacity-80 rounded-full p-2 shadow-lg hover:bg-gray-700 transition-colors dur
     <!-- Modal Trigger and Modal using <details> -->
     <details class="relative mb-6 group">
       <summary class="list-none cursor-pointer outline-none focus:outline-none">
-        <img src="profile.jpg" alt="Ashwini U Patil" class="w-40 h-40 rounded-full object-cover shadow-lg border-4 border-blue-500 transition-transform hover:scale-105" />
+        <img src="profile1.jpg" alt="Ashwini U Patil" class="w-40 h-40 rounded-full object-cover shadow-lg border-4 border-blue-500 transition-transform hover:scale-105" />
       </summary>
       <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
         <div class="relative">
@@ -451,7 +273,8 @@ bg-opacity-80 rounded-full p-2 shadow-lg hover:bg-gray-700 transition-colors dur
     <p class="section-caption">A showcase of my hands-on work and what I've built so far.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- Amazon Clone -->
-      <div class="bg-black rounded-lg shadow p-6 flex flex-col border-l-4 border-teal-200 hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+      <div class="project-card bg-black rounded-lg shadow p-6 flex flex-col border-l-4 border-teal-200 hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+        <div class="project-overlay">Amazon Clone</div>
         <h3 class="text-xl font-semibold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-2">Amazon Clone</h3>
         <p class="text-white mb-2">A fully responsive e-commerce web application inspired by Amazon. Features product listings, shopping cart, and user authentication. Users can browse products, add them to the cart, and simulate a checkout process.</p>
         <ul class="text-sm text-white list-disc list-inside mb-2">
@@ -460,7 +283,8 @@ bg-opacity-80 rounded-full p-2 shadow-lg hover:bg-gray-700 transition-colors dur
         </ul>
       </div>
       <!-- Portfolio using Cursor AI -->
-      <div class="bg-black rounded-lg shadow p-6 flex flex-col border-l-4 border-teal-200 hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+      <div class="project-card bg-black rounded-lg shadow p-6 flex flex-col border-l-4 border-teal-200 hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+        <div class="project-overlay">Portfolio using Cursor AI</div>
         <h3 class="text-xl font-semibold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-2">Portfolio using Cursor AI</h3>
         <p class="text-white mb-2">A personal portfolio website created with the help of Cursor AI, showcasing projects, skills, and contact information in a modern, responsive layout.</p>
         <ul class="text-sm text-white list-disc list-inside mb-2">
@@ -469,7 +293,8 @@ bg-opacity-80 rounded-full p-2 shadow-lg hover:bg-gray-700 transition-colors dur
         </ul>
       </div>
       <!-- MERN Full Stack Web App -->
-      <div class="bg-black rounded-lg shadow p-6 flex flex-col md:col-span-2 border-l-4 border-teal-200 hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+      <div class="project-card bg-black rounded-lg shadow p-6 flex flex-col md:col-span-2 border-l-4 border-teal-200 hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+        <div class="project-overlay">Task Manager App (MERN Stack)</div>
         <h3 class="text-xl font-semibold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-2">Task Manager App (MERN Stack)</h3>
         <p class="text-white mb-2">A full stack web application for managing daily tasks. Users can register, log in, create, update, and delete tasks. All data is stored securely in a MongoDB database.</p>
         <ul class="text-sm text-white list-disc list-inside mb-2">
@@ -508,31 +333,69 @@ bg-opacity-80 rounded-full p-2 shadow-lg hover:bg-gray-700 transition-colors dur
         <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2zm10-10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
         +91 7795045958
       </a>
+      <button id="hireMeBtn" class="mt-4 px-6 py-2 rounded-full bg-gradient-to-r from-pink-400 via-purple-500 to-blue-400 text-white font-semibold shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300 focus:outline-none text-lg">Hire Me!</button>
+      <div id="confetti-container" style="pointer-events:none;position:fixed;inset:0;z-index:999;overflow:hidden;"></div>
     </div>
   </section>
   <footer class="bg-black border-t mt-12 py-4 text-center text-gray-400 text-sm w-full">
     © 2025 Ashwini U Patil
   </footer>
   <!-- Back to Top Button -->
-<button id="backToTop" aria-label="Back to Top" class="hidden fixed bottom-8 right-8 z-50 p-3 rounded-full 
-shadow-lg bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 text-white hover:scale-110 
-transition-transform duration-300 focus:outline-none">
-  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path 
-stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
-</button>
-<script>
-  // Back to Top Button logic
-  const backToTopBtn = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {
-      backToTopBtn.classList.remove('hidden');
-    } else {
-      backToTopBtn.classList.add('hidden');
+  <button id="backToTop" aria-label="Back to Top" class="hidden fixed bottom-8 right-8 z-50 p-3 rounded-full shadow-lg bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 text-white hover:scale-110 transition-transform duration-300 focus:outline-none">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+  </button>
+  <script>
+    // Back to Top Button logic
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        backToTopBtn.classList.remove('hidden');
+      } else {
+        backToTopBtn.classList.add('hidden');
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+  <script>
+    // Confetti Animation for 'Hire Me!' Button
+    function createConfettiPiece(x, y, color) {
+      const el = document.createElement('div');
+      el.className = 'confetti-piece';
+      el.style.left = x + 'px';
+      el.style.top = y + 'px';
+      el.style.background = color;
+      el.style.transform = `rotate(${Math.random()*360}deg)`;
+      document.getElementById('confetti-container').appendChild(el);
+      setTimeout(() => el.remove(), 1200);
     }
-  });
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-</script>
+    function launchConfetti() {
+      const colors = ['#60a5fa','#a78bfa','#f472b6','#facc15','#34d399','#f87171'];
+      const w = window.innerWidth, h = window.innerHeight;
+      for (let i = 0; i < 48; i++) {
+        const x = Math.random() * w * 0.8 + w*0.1;
+        const y = Math.random() * h * 0.2 + h*0.1;
+        createConfettiPiece(x, y, colors[Math.floor(Math.random()*colors.length)]);
+      }
+    }
+    document.getElementById('hireMeBtn').addEventListener('click', launchConfetti);
+  </script>
+  <style>
+    .confetti-piece {
+      position: absolute;
+      width: 12px;
+      height: 18px;
+      border-radius: 3px;
+      opacity: 0.85;
+      pointer-events: none;
+      animation: confetti-fall 1.2s cubic-bezier(0.6,0,0.4,1) forwards;
+    }
+    @keyframes confetti-fall {
+      0% { transform: translateY(-40px) scale(1) rotate(0deg); opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateY(120px) scale(0.8) rotate(360deg); opacity: 0; }
+    }
+  </style>
 </body>
 </html>
