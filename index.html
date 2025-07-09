@@ -5,6 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ashwini U Patil | Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+  /* Section hover effect: lift, glow, and shadow */
+  section:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 8px 32px 0 rgba(58, 123, 213, 0.25), 0 0 24px 4px rgba(236, 72, 15
+    border-color: #a5b4fc; /* Soft blue border on hover */
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    z-index: 2;
+  }
+  /* Add a faint gradient glow using pseudo-element */
+  section:hover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    pointer-events: none;
+    z-index: 1;
+    box-shadow: 0 0 32px 8px rgba(59,130,246,0.15), 0 0 48px 16px rgba(236,72,153,0.
+  }
+  section {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    z-index: 1;
+  }
+  .section-caption {
+    font-style: italic;
+    color: #aaa;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+</style>
 </head>
 <body class="min-h-screen w-full bg-black">
   <nav class="absolute top-0 left-0 w-full bg-black shadow py-4 z-10">
