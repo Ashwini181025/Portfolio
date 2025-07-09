@@ -5,37 +5,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ashwini U Patil | Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-   /* Section hover effect: lift, glow, and shadow */
-   section:hover {
-     transform: translateY(-8px) scale(1.02);
-     box-shadow: 0 8px 32px 0 rgba(58, 123, 213, 0.25), 0 0 24px 4px rgba(236, 72, 1
-     border-color: #a5b4fc; /* Soft blue border on hover */
-     transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-     z-index: 2;
-   }
-   /* Add a faint gradient glow using pseudo-element */
-   section:hover::after {
-     content: '';
-     position: absolute;
-     inset: 0;
-     border-radius: 1rem;
-     pointer-events: none;
-     z-index: 1;
-     box-shadow: 0 0 32px 8px rgba(59,130,246,0.15), 0 0 48px 16px rgba(236,72,153,0
-   }
-   section {
-     position: relative;
-     transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-     z-index: 1;
-   }
-   .section-caption {
-     font-style: italic;
-     color: #aaa;
-     font-size: 1rem;
-     margin-bottom: 1.5rem;
-   }
- </style>
+ <style>
+  /* Section hover effect: lift, glow, and shadow */
+  section:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 8px 32px 0 rgba(58, 123, 213, 0.25), 0 0 24px 4px rgba(236, 72, 153, 0.15);
+    border-color: #a5b4fc; /* Soft blue border on hover */
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    z-index: 2;
+  }
+  /* Add a faint gradient glow using pseudo-element */
+  section:hover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    pointer-events: none;
+    z-index: 1;
+    box-shadow: 0 0 32px 8px rgba(59,130,246,0.15), 0 0 48px 16px rgba(236,72,153,0.10);
+  }
+  section {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    z-index: 1;
+  }
+  .section-caption {
+    font-style: italic;
+    color: #aaa;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  /* Advanced Project Card Hover Effects */
+  #projects .project-card {
+    perspective: 900px;
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+    position: relative;
+    overflow: hidden;
+  }
+  #projects .project-card:hover {
+    transform: rotateY(8deg) scale(1.04) translateY(-6px);
+    box-shadow: 0 12px 32px 0 rgba(58,123,213,0.25), 0 0 32px 8px rgba(236,72,153,0.10);
+    z-index: 2;
+  }
+  #projects .project-card .project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg,rgba(59,130,246,0.7),rgba(168,139,250,0.7),rgba(244,114,182,0.7));
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1);
+    z-index: 3;
+    pointer-events: none;
+  }
+  #projects .project-card:hover .project-overlay {
+    opacity: 1;
+  }
+  #projects .project-card img {
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
+  #projects .project-card:hover img {
+    transform: scale(1.08) rotate(-2deg);
+  }
+</style>
+<script>
+  // Fade/slide-in animation for sections on scroll
+  document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('section');
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('section-visible');
+        }
+      });
+    }, { threshold: 0.15 });
+    sections.forEach(section => {
+      section.classList.add('section-hidden');
+      observer.observe(section);
+    });
+  });
+</script>
+<style>
+  .section-hidden {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+  }
+  .section-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+</style>
  <script>
    // Fade/slide-in animation for sections on scroll
    document.addEventListener('DOMContentLoaded', function() {
