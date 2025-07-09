@@ -324,7 +324,23 @@
   <section id="contact" class="mt-10 max-w-xl mx-auto bg-black rounded-lg shadow-2xl hover:shadow-2xl transition duration-300 p-8 text-center border-t-4 border-teal-100">
     <h2 class="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent mb-4">Contact</h2>
     <p class="section-caption">Let's connect! I'm always open to new opportunities and collaborations.</p>
-    <div class="flex flex-col items-center space-y-3">
+    <form action="https://formsubmit.co/ashwinipatil1825@gmail.com" method="POST" class="space-y-6 max-w-md mx-auto mt-6">
+      <input type="hidden" name="_next" value="https://your-portfolio-url.com/thank-you.html">
+      <div class="relative">
+        <input type="text" name="name" required class="peer w-full px-4 pt-6 pb-2 bg-transparent border-b-2 border-gray-400 text-lg text-white focus:outline-none focus:border-blue-400 transition-colors" placeholder=" " />
+        <label class="absolute left-4 top-2 text-gray-400 text-base pointer-events-none transition-all duration-300">Name</label>
+      </div>
+      <div class="relative">
+        <input type="email" name="email" required class="peer w-full px-4 pt-6 pb-2 bg-transparent border-b-2 border-gray-400 text-lg text-white focus:outline-none focus:border-blue-400 transition-colors" placeholder=" " />
+        <label class="absolute left-4 top-2 text-gray-400 text-base pointer-events-none transition-all duration-300">Email</label>
+      </div>
+      <div class="relative">
+        <textarea name="message" required rows="4" class="peer w-full px-4 pt-6 pb-2 bg-transparent border-b-2 border-gray-400 text-lg text-white focus:outline-none focus:border-blue-400 transition-colors resize-none" placeholder=" "></textarea>
+        <label class="absolute left-4 top-2 text-gray-400 text-base pointer-events-none transition-all duration-300">Message</label>
+      </div>
+      <button type="submit" class="w-full mt-2 px-6 py-2 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 text-white font-semibold shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300 focus:outline-none text-lg">Send Message</button>
+    </form>
+    <div class="flex flex-col items-center space-y-2 mt-6 mb-2">
       <a href="mailto:ashwinipatil1825@gmail.com" class="flex items-center bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent hover:underline transition-transform hover:scale-105 text-lg">
         <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm0 0v4a4 4 0 01-8 0v-4"></path></svg>
         ashwinipatil1825@gmail.com
@@ -333,9 +349,9 @@
         <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2zm10-10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zm0 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
         +91 7795045958
       </a>
-      <button id="hireMeBtn" class="mt-4 px-6 py-2 rounded-full bg-gradient-to-r from-pink-400 via-purple-500 to-blue-400 text-white font-semibold shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300 focus:outline-none text-lg">Hire Me!</button>
-      <div id="confetti-container" style="pointer-events:none;position:fixed;inset:0;z-index:999;overflow:hidden;"></div>
     </div>
+    <button id="hireMeBtn" class="mt-6 px-6 py-2 rounded-full bg-gradient-to-r from-pink-400 via-purple-500 to-blue-400 text-white font-semibold shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300 focus:outline-none text-lg">Hire Me!</button>
+    <div id="confetti-container" style="pointer-events:none;position:fixed;inset:0;z-index:999;overflow:hidden;"></div>
   </section>
   <footer class="bg-black border-t mt-12 py-4 text-center text-gray-400 text-sm w-full">
     © 2025 Ashwini U Patil
@@ -395,6 +411,106 @@
       0% { transform: translateY(-40px) scale(1) rotate(0deg); opacity: 1; }
       80% { opacity: 1; }
       100% { transform: translateY(120px) scale(0.8) rotate(360deg); opacity: 0; }
+    }
+  </style>
+  <script>
+    // Contact Form Validation & Animation
+    const contactForm = document.getElementById('contactForm');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const messageError = document.getElementById('messageError');
+    const formSuccess = document.getElementById('formSuccess');
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+    function showError(input, errorDiv, message) {
+      errorDiv.textContent = message;
+      errorDiv.classList.remove('hidden');
+      input.classList.add('border-pink-400');
+    }
+    function hideError(input, errorDiv) {
+      errorDiv.classList.add('hidden');
+      input.classList.remove('border-pink-400');
+    }
+    function showSuccess() {
+      formSuccess.classList.remove('hidden');
+      setTimeout(() => {
+        formSuccess.classList.add('hidden');
+      }, 3000); // Hide after 3 seconds
+    }
+
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      let formIsValid = true;
+
+      if (nameInput.value.trim() === '') {
+        showError(nameInput, nameError, 'Please enter your name.');
+        formIsValid = false;
+      } else {
+        hideError(nameInput, nameError);
+      }
+
+      if (!validateEmail(emailInput.value)) {
+        showError(emailInput, emailError, 'Please enter a valid email address.');
+        formIsValid = false;
+      } else {
+        hideError(emailInput, emailError);
+      }
+
+      if (messageInput.value.trim() === '') {
+        showError(messageInput, messageError, 'Please enter your message.');
+        formIsValid = false;
+      } else {
+        hideError(messageInput, messageError);
+      }
+
+      if (formIsValid) {
+        // Simulate form submission for animation
+        nameInput.value = '';
+        emailInput.value = '';
+        messageInput.value = '';
+        showSuccess();
+        launchConfetti(); // Keep confetti for successful submission
+      }
+    });
+  </script>
+  <style>
+    /* Floating label animation for contact form */
+    #contactForm input:focus + label,
+    #contactForm input:not(:placeholder-shown) + label,
+    #contactForm textarea:focus + label,
+    #contactForm textarea:not(:placeholder-shown) + label {
+      top: -1.2rem;
+      left: 2px;
+      font-size: 0.9rem;
+      color: #60a5fa;
+    }
+    #contactForm input,
+    #contactForm textarea {
+      background: transparent;
+      color: var(--text-main);
+    }
+    #contactForm label {
+      pointer-events: none;
+      position: absolute;
+      left: 1rem;
+      top: 1.5rem;
+      color: #aaa;
+      font-size: 1rem;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    #contactForm input:focus,
+    #contactForm textarea:focus {
+      border-color: #60a5fa;
+    }
+    #contactForm input.border-pink-400,
+    #contactForm textarea.border-pink-400 {
+      border-color: #f472b6 !important;
     }
   </style>
 </body>
